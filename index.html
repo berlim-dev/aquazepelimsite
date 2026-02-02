@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Zepelim | Inovação Educacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-claro: #0f172a;
+            --azul-oceano: #0077be;
+            --verde: #32cd32;
+            --amarelo: #ffbd00;
+            --laranja: #ff6600;
+            --branco: #1e293b;
+            --texto: #f1f5f9;
+            --card-bg: #1e293b;
+            --glass: rgba(15, 23, 42, 0.85);
+            --azul-brilhante: #4fc3f7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--texto); 
+            background-color: var(--azul-claro); 
+            overflow-x: hidden; 
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 85vh;
+            display: flex;
+            position: relative;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .listra { height: 33.33%; width: 100%; position: absolute; left: 0; z-index: 0; opacity: 0.8; }
+        .listra.laranja { top: 0; background-color: var(--laranja); }
+        .listra.verde { top: 33.33%; background-color: var(--verde); }
+        .listra.amarela { top: 66.66%; background-color: var(--amarelo); }
+
+        .categorias-topo {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .cat-tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .hero-content { 
+            position: relative; 
+            z-index: 1; 
+            background: var(--glass); 
+            backdrop-filter: blur(15px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            font-weight: 900;
+            font-size: 3.5rem; 
+            color: var(--azul-brilhante); 
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(79, 195, 247, 0.3);
+        }
+
+        .hero h2 { font-family: 'Caveat', cursive; font-size: 2.5rem; color: var(--amarelo); }
+
+        /* --- SEÇÕES --- */
+        section { padding: 40px 12%; position: relative; }
+        
+        h2 { 
+            font-family: 'Orbitron', sans-serif; 
+            font-weight: 700;
+            font-size: 2rem; 
+            margin-bottom: 30px; 
+            color: var(--azul-brilhante); 
+            text-align: center; 
+            letter-spacing: 2px;
+        }
+
+        .box-container {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- EQUIPE CARDS --- */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 0px solid var(--laranja);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-bottom-width: 5px;
+            border-bottom-color: var(--laranja);
+            background: #24344d;
+        }
+
+        .team-card h3 { font-family: 'Orbitron', sans-serif; font-weight: 700; margin-bottom: 10px; font-size: 1.2rem; color: white; }
+        .role-tag { font-family: 'Caveat', cursive; font-size: 1.5rem; color: var(--laranja); font-weight: bold; }
+
+        /* --- BOTÃO JOGO --- */
+        .btn-game {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 20px 60px;
+            background-color: var(--laranja);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .btn-game:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 102, 0, 0.6); }
+
+        .social-link {
+            color: var(--laranja);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .social-link:hover { color: var(--azul-brilhante); transform: scale(1.05); }
+
+        footer { 
+            text-align: center; 
+            padding: 60px; 
+            background: #070b14; 
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .emoji-float { position: absolute; font-size: 4rem; opacity: 0.1; animation: float 4s infinite ease-in-out; pointer-events: none; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            section { padding: 40px 8%; }
+            .hero { height: 70vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="listra laranja"></div>
+        <div class="listra verde"></div>
+        <div class="listra amarela"></div>
+        
+        <div class="categorias-topo">
+            <span class="cat-tag">🚀 Tecnologia</span>
+            <span class="cat-tag">📚 Educação</span>
+            <span class="cat-tag">🌱 Ambiental</span>
+            <span class="cat-tag">🔬 Pesquisa</span>
+            <span class="cat-tag">💡 Ideias</span>
+        </div>
+
+        <div class="hero-content">
+            <h1>AQUA ZEPELIM</h1>
+            <h2>A história por trás da inovação</h2>
+        </div>
+    </header>
+
+    <section>
+        <div class="emoji-float" style="top: 0; right: 10%;">⚙️</div>
+        <div class="box-container" style="border-left: 5px solid var(--laranja);">
+            <h2>Quem Somos</h2>
+            <p>Somos o <strong>Projeto Aqua Zepelim</strong>, fundado por alunos e professores do IFES – Campus Presidente Kennedy. Criado em 2025, o projeto surgiu com o objetivo de transformar o aprendizado em uma experiência prática, divertida e inovadora.</p>
+            <p style="margin-top: 15px;">O Aqua Zepelim une tecnologia, robótica, programação, criatividade e educação em um ambiente colaborativo, onde os alunos aprendem fazendo.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="box-container" style="border-right: 5px solid var(--verde);">
+            <h2>Objetivo do Zepelim</h2>
+            <p>O Zepelim do projeto <strong>Aqua Zepelim</strong> coleta água de rios, manguezais, praias e outros locais para analisar sua qualidade. O objetivo é verificar se a água é própria para consumo, uso recreativo e preservação da vida local, além de gerar dados ambientais que ajudam na educação, proteção dos ecossistemas e prevenção de riscos à saúde.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="color: #24dd13;">Equipe de Professores</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <p class="role-tag">Orientador</p>
+                <h3>Prof. Ricardo</h3>
+                <p>Hardware, Automação e Tecnologias Aplicadas.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Orientadora</p>
+                <h3>Prof. Carla</h3>
+                <p>Biociências, Sustentabilidade e Meio Ambiente.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Orientadora</p>
+                <h3>Prof. Elisa</h3>
+                <p>Comunicação, Linguagens e Globalização.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="emoji-float" style="bottom: 0; left: 5%;">🤖</div>
+        <h2 style="color: var(--amarelo);">Equipe de Alunos</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <p class="role-tag">Criativo</p>
+                <h3>João Davi</h3>
+                <p>Inteligente, rápido no raciocínio e criativo.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Tecnológico</p>
+                <h3>Lucas</h3>
+                <p>Experiente em tecnologia e raciocínio lógico.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Dedicado</p>
+                <h3>Ryan</h3>
+                <p>Esforçado, atencioso e focado na execução.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Lógico</p>
+                <h3>Gustavo</h3>
+                <p>Inteligente e com ótima capacidade analítica.</p>
+            </div>
+            <div class="team-card">
+                <p class="role-tag">Responsável</p>
+                <h3>Maria Luiza</h3>
+                <p>Responsável, carismática e criativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <div class="box-container" style="border: 2px dashed var(--laranja);">
+            <h2>Conheça nosso jogo</h2>
+            <h3 style="color: var(--laranja); font-family: 'Orbitron', sans-serif;">🎮 Aqua Zepelim Typing Rush</h3>
+            <p style="margin-top: 10px;">Melhore sua velocidade e precisão de forma desafiadora!</p>
+            <a href="https://berlim-dev.github.io/berlimfritzgames/" class="btn-game" target="_blank">Começar a Jogar</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="box-container" style="text-align: center; border-top: 3px solid var(--laranja);">
+            <h2>Redes Sociais</h2>
+            <p>Siga nossa jornada no Instagram:</p>
+            <a href="https://www.instagram.com/aquazepelim" target="_blank" class="social-link">@aquazepelim</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Aqua Zepelim - IFES Presidente Kennedy</p>
+        <p style="font-family: 'Caveat'; font-size: 1.5rem; color: var(--amarelo); margin-top: 10px;">"Onde a educação encontra a tecnologia."</p>
+    </footer>
+
+</body>
+</html>
